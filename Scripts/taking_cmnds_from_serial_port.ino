@@ -11,7 +11,7 @@ void setup() {
 void loop() {
   if (Serial.available()){
     value = Serial.readString();
-    
+    value.trim();
     if (value == "TURNON"){
       state = true;
       }
