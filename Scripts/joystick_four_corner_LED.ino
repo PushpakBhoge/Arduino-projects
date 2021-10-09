@@ -47,13 +47,14 @@ void loop() {
   // Get reading
   int x_reading = analogRead(xpin) + xerror;
   int y_reading = analogRead(ypin) + yerror;
-
+  
+  // handle edge cases
   if (x_reading < 0) {x_reading = 0;}
   if (y_reading < 0) {y_reading = 0;}
   if (x_reading > 1023) {x_reading = 1023;}
   if (y_reading > 1023) {y_reading = 1023;}
 
-  
+  // turn on led on the each corner and all 0 if not in corner
   if (x_reading < offset && y_reading < offset){light_those_LEDS(1,0,0,0);}
   else if (x_reading < offset && y_reading > 1023-offset){light_those_LEDS(0,1,0,0);}
   else if (x_reading > 1023-offset && y_reading > 1023-offset){light_those_LEDS(0,0,1,0);}
@@ -62,7 +63,7 @@ void loop() {
   
 }
 
-
+// function for turning on light
 void light_those_LEDS(bool led1_state, bool led2_state, bool led3_state, bool led4_state){
     digitalWrite(led1, led1_state);
     digitalWrite(led2, led2_state);
