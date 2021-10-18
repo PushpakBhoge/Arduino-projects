@@ -18,15 +18,19 @@ void loop() {
   ir2 = 1 - digitalRead(10);
   if (ir1 == 0 && ir2 == 0) {
     CarControl(1, 0, 1, 0); // Go forward
+    Serial.println("Forward");
   }
   if (ir1 == 1 && ir2 == 0) { // Turn left
     CarControl(0, 0, 1, 0);
+    Serial.println("Turn Left");
   }
   if (ir1 == 0 && ir2 == 1) { // Turn right
     CarControl(1, 0, 0, 0);
+    Serial.println("Turn Right");
   }
   if (ir1 == 1 && ir2 == 1) { // Black square for stop
     CarControl(0, 0, 0, 0);
+    Serial.println("Stop");
   }
 }
 
