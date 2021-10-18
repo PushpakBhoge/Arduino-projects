@@ -4,10 +4,16 @@ int ir2;
 void setup() {
   pinMode(9, INPUT);
   pinMode(10, INPUT);
+  for (int i = 2; i < 6; i++){
+    pinMode(i, OUTPUT);
+  }
   Serial.begin(9600);
 }
 
 void loop() {
+  // 1 is Black
+  // 0 is White
+  
   ir1 = 1 - digitalRead(9);
   ir2 = 1 - digitalRead(10);
   if (ir1 == 0 && ir2 == 0) {
