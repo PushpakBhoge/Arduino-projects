@@ -49,39 +49,51 @@ void loop() {
 //        Serial.println("Backward Left");
 //      }
       if (forward == 1) {
-        digitalWrite(4, 1);
-        digitalWrite(5, 0);
-        digitalWrite(6, 1);
-        digitalWrite(7, 0);
+        CarControl(1, 0, 1, 0);
+//        digitalWrite(4, 1);
+//        digitalWrite(5, 0);
+//        digitalWrite(6, 1);
+//        digitalWrite(7, 0);
         Serial.println("Forward");
       }
       else if (backward == 1) {
-        digitalWrite(4, 0);
-        digitalWrite(5, 1);
-        digitalWrite(6, 0);
-        digitalWrite(7, 1);
+        CarControl(0, 1, 0, 1);
+//        digitalWrite(4, 0);
+//        digitalWrite(5, 1);
+//        digitalWrite(6, 0);
+//        digitalWrite(7, 1);
         Serial.println("Backward");
       }
       else if (left == 1) {
-        digitalWrite(4, 1);
-        digitalWrite(5, 0);
-        digitalWrite(6, 0);
-        digitalWrite(7, 1);
+        CarControl(1, 0, 0, 1);
+//        digitalWrite(4, 1);
+//        digitalWrite(5, 0);
+//        digitalWrite(6, 0);
+//        digitalWrite(7, 1);
         Serial.println("Left");
       }
       else if (right == 1) {
-        digitalWrite(4, 0);
-        digitalWrite(5, 1);
-        digitalWrite(6, 1);
-        digitalWrite(7, 0);
+        CarControl(0, 1, 1, 0);
+//        digitalWrite(4, 0);
+//        digitalWrite(5, 1);
+//        digitalWrite(6, 1);
+//        digitalWrite(7, 0);
         Serial.println("Right");
       }
     }
     else {
-      digitalWrite(4, 0);
-      digitalWrite(5, 0);
-      digitalWrite(6, 0);
-      digitalWrite(7, 0);
+      CarControl(0, 0, 0, 0);
+//      digitalWrite(4, 0);
+//      digitalWrite(5, 0);
+//      digitalWrite(6, 0);
+//      digitalWrite(7, 0);
     }
   }
+}
+
+void CarControl(a, b, c, d) {
+  digitalWrite(4, a);
+  digitalWrite(5, b);
+  digitalWrite(6, c);
+  digitalWrite(7, d);
 }
