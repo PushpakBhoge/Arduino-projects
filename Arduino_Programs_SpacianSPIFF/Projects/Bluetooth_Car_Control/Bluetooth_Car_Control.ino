@@ -91,7 +91,7 @@ void loop() {
   }
 }
 
-void CarControl(a, b, c, d) {
+void CarControl(int a, int b, int c, int d) {
   digitalWrite(4, a);
   digitalWrite(5, b);
   digitalWrite(6, c);
